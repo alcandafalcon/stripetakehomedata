@@ -1,0 +1,25 @@
+name: 'stripe_take_home'
+version: '1.0.0'
+config-version: 2
+
+profile: 'stripe_take_home'
+
+model-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"  # directory which will store compiled SQL files
+clean-targets:         # directories to be removed by 'dbt clean'
+  - "target"
+  - "dbt_packages"
+
+vars:
+  current_date: '2042-06-22' # the simulated max date that was found in the payments dataset
+
+models:
+  stripe_take_home:
+    # Configured models to be enabled by default
+    +materialized: view

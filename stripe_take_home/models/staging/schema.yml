@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: stg_merchants
+    columns:
+      - name: merchant_id
+        description: '{{ doc("merchant_id") }}'
+        tests:
+          - unique
+          - not_null
+      - name: industry
+        description: '{{ doc("merchant_industry") }}'
+      - name: first_charge_date
+        description: '{{ doc("merchant_first_charge_date") }}'
+      - name: country
+        description: '{{ doc("merchant_country") }}'
+      - name: business_size
+        description: '{{ doc("merchant_business_size") }}'
+
+  - name: stg_payments
+    columns:
+      - name: payment_id
+        tests:
+          - unique
+          - not_null
+      - name: date
+        description: '{{ doc("payment_date") }}'
+      - name: merchant
+        description: '{{ doc("payment_merchant_id") }}'
+      - name: subscription_volume
+        description: '{{ doc("payment_subscription_volume") }}'
+      - name: checkout_volume
+        description: '{{ doc("payment_checkout_volume") }}'
+      - name: payment_link_volume
+        description: '{{ doc("payment_payment_link_volume") }}'
+      - name: total_volume
+        description: '{{ doc("payment_total_volume") }}'

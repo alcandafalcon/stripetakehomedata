@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: mart_propensity_scoring
+    columns:
+      - name: merchant_id
+        description: '{{ doc("mart_propensity_scoring_merchant_id") }}'
+        tests:
+          - unique
+          - not_null
