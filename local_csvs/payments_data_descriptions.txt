@@ -1,7 +1,0 @@
-Column	Description
-date	When the payment was created in our api
-merchant	The unique identifier for Stripe users. Can be joined onto Merchants dataset
-subscription_volume	Payment volume processed through Stripe's subscription product
-checkout_volume	Payment volume processed through Stripe's Checkout product
-payment_link_volume	Payment volume processed through Stripe's Payment Link product
-total_volume	Payment volume processed through ALL products

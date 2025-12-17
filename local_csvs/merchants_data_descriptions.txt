@@ -1,6 +1,0 @@
-Column	Description
-merchant	The unique identifier for Stripe users
-industry	The industry that a user is in. E.g., "Food & drink", "Software",etc.
-first_charge_date	The first charge/payment created by the merchant throught any product
-country	The country that a user is in. E.g., "US", "AU", "HK", etc.
-business_size	Segmentation based on company size. E.g., "small", "medium", "large"

@@ -57,11 +57,6 @@ joined as (
         sc.score_size,
         sc.total_propensity_score,
 
-        -- New Fit Flags
-        sc.is_behavioural_fit,
-        sc.is_customer_profile_fit,
-        sc.is_volume_fit,
-
         -- Outreach Segment
         case 
             when sc.total_propensity_score >= 5 then 'Tier 1: High Propensity (Score 5-6)'

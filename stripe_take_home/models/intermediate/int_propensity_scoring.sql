@@ -93,45 +93,6 @@ scored as (
             when lower(business_size) in ('medium', 'large') then 1 else 0
         end as score_size,
 
-        -- NEW: Behavioural Fit
-        -- mimicking Subscription features (regular payments), 
-        -- but using Stripe Checkout and Stripe Payment Links
-        case
-            when 
-                (checkout_volume_ltm > 0 or payment_link_volume_ltm > 0)
-                and has_regular_payments
-            then true
-            else false
-        end as is_behavioural_fit,
-
-        -- NEW: Customer Profile Fit
-        -- business types with propensity to use recurring invoicing features, growing volume
-        case
-            when
-                industry in (
-                    'Software',
-                    'Education',
-                    'Rentals',
-                    'Leisure',
-                    'Business services', 
-                    'Religion, politics & other memberships',
-                    'Ticketing & events'
-                )
-                and total_volume_ltm > total_volume_prev_ltm
-            then true
-            else false
-        end as is_customer_profile_fit,
-
-        -- NEW: Volume Fit
-        -- merchants with growing volume and sufficient scale
-        case
-            when
-                total_volume_ltm > total_volume_prev_ltm
-                and total_volume_ltm >= 100000
-            then true
-            else false
-        end as is_volume_fit
-
     from joined
 )
 
